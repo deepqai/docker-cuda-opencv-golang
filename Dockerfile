@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-devel-ubuntu16.04 as compiler
+FROM nvidia/cuda:10.1-devel-ubuntu16.04
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cmake \
@@ -23,8 +23,7 @@ RUN git clone --depth 1 -b 3.4.6 https://github.com/opencv/opencv.git /opencv &&
     rm -rf /opencv /opencv_contrib
 
 # Install golang
-ENV GOLANG_VERSION 1.10
+ENV GOLANG_VERSION 1.12.9
 RUN wget -nv -O - https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz \
     | tar -C /usr/local -xz
-ENV GOPATH /go
-ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+ENV PATH /usr/local/go/bin:$PATH
