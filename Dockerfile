@@ -23,7 +23,7 @@ RUN git clone --depth 1 -b 3.4.6 https://github.com/opencv/opencv.git /opencv &&
     rm -rf /opencv /opencv_contrib
 
 # Install golang
-ENV GOLANG_VERSION 1.12.9
+ENV GOLANG_VERSION 1.19
 RUN wget -nv -O - https://storage.googleapis.com/golang/go${GOLANG_VERSION}.linux-amd64.tar.gz \
     | tar -C /usr/local -xz
 ENV PATH /usr/local/go/bin:$PATH
